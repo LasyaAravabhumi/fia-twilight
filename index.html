@@ -1,15 +1,650 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><title>FIA Twilight</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIA — Twilight Character Analysis Wiki</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Georgia,serif;background:#0a0a1a;color:#e8e0d0}header{background:linear-gradient(135deg,#1a0a2e,#2d1b4e);padding:40px 20px;text-align:center;border-bottom:2px solid #6b3fa0}header h1{font-size:2.8em;color:#d4a0ff;letter-spacing:3px;text-transform:uppercase}header p{color:#a080c0;margin-top:10px}.container{max-width:1200px;margin:0 auto;padding:40px 20px}.card{background:linear-gradient(135deg,#1a0a2e,#150820);border:2px solid #6b3fa0;border-radius:16px;padding:40px;margin-bottom:40px;text-align:center;box-shadow:0 0 40px rgba(107,63,160,.3)}.name{font-size:3em;color:#d4a0ff;margin-bottom:10px}.badge{display:inline-block;background:linear-gradient(135deg,#6b3fa0,#9b59b6);color:#fff;padding:12px 30px;border-radius:30px;font-size:1.4em;margin:15px 0}.big{font-size:4em;color:#ff6b9d;font-weight:700;margin:10px 0}.label{color:#a080c0}.section{background:#120820;border:1px solid #3d2060;border-radius:12px;padding:30px;margin-bottom:30px}.section h2{color:#d4a0ff;font-size:1.6em;margin-bottom:20px;border-bottom:1px solid #3d2060;padding-bottom:10px}.chart{position:relative;height:600px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.pcard{background:#1a0a2e;border:1px solid #6b3fa0;border-radius:10px;padding:20px;text-align:center}.pname{color:#a080c0;font-size:.9em;text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.ptype{color:#d4a0ff;font-size:1.1em;font-weight:700;margin-bottom:5px}.pscore{color:#ff6b9d;font-size:1.8em;font-weight:700}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.titem{background:#1a0a2e;border-left:3px solid #6b3fa0;padding:12px;border-radius:6px}.tname{color:#a080c0;font-size:.85em}.tscore{color:#ff6b9d;font-size:1.4em;font-weight:700}footer{text-align:center;padding:30px;color:#5a4070;border-top:1px solid #2d1b4e;margin-top:40px}</style></head>
-<body><header><h1>Female Intelligence Agency</h1><p>Twilight (2008) — Character Behavioral Analysis</p></header>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #0a0a1a; color: #e8e0d0; }
+header { background: linear-gradient(135deg, #1a0a2e, #2d1b4e); padding: 40px 20px; text-align: center; border-bottom: 2px solid #6b3fa0; }
+header h1 { font-size: 2.8em; color: #d4a0ff; letter-spacing: 3px; text-transform: uppercase; }
+header p { color: #a080c0; margin-top: 10px; font-size: 1.1em; }
+nav { background: #120820; border-bottom: 1px solid #3d2060; padding: 0; display: flex; justify-content: center; gap: 0; flex-wrap: wrap; }
+nav a { color: #a080c0; text-decoration: none; padding: 15px 25px; font-size: 0.95em; letter-spacing: 1px; text-transform: uppercase; border-bottom: 3px solid transparent; transition: all 0.3s; }
+nav a:hover, nav a.active { color: #d4a0ff; border-bottom-color: #6b3fa0; background: #1a0a2e; }
+.container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+.page { display: none; }
+.page.active { display: block; }
+.character-card { background: linear-gradient(135deg, #1a0a2e, #150820); border: 2px solid #6b3fa0; border-radius: 16px; padding: 40px; margin-bottom: 40px; text-align: center; box-shadow: 0 0 40px rgba(107,63,160,.3); }
+.character-name { font-size: 3em; color: #d4a0ff; margin-bottom: 10px; }
+.badge-type { display: inline-block; background: linear-gradient(135deg, #6b3fa0, #9b59b6); color: #fff; padding: 12px 30px; border-radius: 30px; font-size: 1.4em; margin: 15px 0; letter-spacing: 2px; }
+.score-big { font-size: 4em; color: #ff6b9d; font-weight: 700; margin: 10px 0; }
+.label { color: #a080c0; font-size: 1em; }
+.section { background: #120820; border: 1px solid #3d2060; border-radius: 12px; padding: 30px; margin-bottom: 30px; }
+.section h2 { color: #d4a0ff; font-size: 1.6em; margin-bottom: 20px; border-bottom: 1px solid #3d2060; padding-bottom: 10px; }
+.section h3 { color: #b090e0; font-size: 1.2em; margin: 20px 0 10px; }
+.chart-tall { position: relative; height: 500px; }
+.chart-med { position: relative; height: 350px; }
+.chart-sm { position: relative; height: 280px; }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.platform-card { background: #1a0a2e; border: 1px solid #6b3fa0; border-radius: 10px; padding: 20px; text-align: center; }
+.platform-name { color: #a080c0; font-size: .9em; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.platform-type { color: #d4a0ff; font-size: 1.1em; font-weight: 700; margin-bottom: 5px; }
+.platform-score { color: #ff6b9d; font-size: 1.8em; font-weight: 700; }
+.trait-item { background: #1a0a2e; border-left: 3px solid #6b3fa0; padding: 12px; border-radius: 6px; }
+.trait-name { color: #a080c0; font-size: .85em; }
+.trait-score { color: #ff6b9d; font-size: 1.4em; font-weight: 700; }
+.wiki-text { line-height: 1.8; color: #c0b0d8; font-size: 1.05em; margin-bottom: 15px; }
+.evidence-table { width: 100%; border-collapse: collapse; font-size: 0.88em; margin-top: 15px; }
+.evidence-table th { background: #1a0a2e; color: #d4a0ff; padding: 12px 8px; text-align: left; border-bottom: 2px solid #3d2060; font-size: 0.85em; text-transform: uppercase; letter-spacing: 1px; }
+.evidence-table td { padding: 10px 8px; border-bottom: 1px solid #2a1040; vertical-align: top; color: #c0b0d8; }
+.evidence-table tr:hover td { background: #1a0a2e; }
+.quote-cell { font-style: italic; color: #d4a0ff; max-width: 280px; }
+.reason-cell { color: #a080c0; font-size: 0.85em; max-width: 260px; }
+.badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+.type-tell { background: #3d1060; color: #d4a0ff; }
+.type-claim { background: #1a3060; color: #90c0ff; }
+.type-perc { background: #1a4030; color: #90ffc0; }
+.sig-clear { background: #3d0020; color: #ff6b9d; }
+.sig-mod { background: #3d2000; color: #ffb06b; }
+.sig-faint { background: #2a2a2a; color: #a0a0a0; }
+.insight-box { background: linear-gradient(135deg, #1a0a2e, #2d1b4e); border-left: 4px solid #ff6b9d; padding: 20px; border-radius: 8px; margin: 20px 0; }
+.insight-box p { color: #e0d0f0; line-height: 1.7; }
+.claims-tells-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+.chart-label { text-align: center; color: #a080c0; font-size: 0.9em; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; }
+.chart-count { text-align: center; color: #ff6b9d; font-size: 1.1em; font-weight: bold; margin-bottom: 10px; }
+.relationship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.rel-card { background: #1a0a2e; border: 1px solid #6b3fa0; border-radius: 10px; padding: 20px; }
+.rel-card h4 { color: #d4a0ff; margin-bottom: 10px; }
+.rel-card p { color: #a080c0; font-size: 0.9em; line-height: 1.6; }
+footer { text-align: center; padding: 30px; color: #5a4070; border-top: 1px solid #2d1b4e; margin-top: 40px; }
+@media (max-width: 768px) {
+  .grid2, .claims-tells-wrap, .relationship-grid { grid-template-columns: 1fr; }
+  .grid3 { grid-template-columns: repeat(2, 1fr); }
+  header h1 { font-size: 1.8em; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Feminine Intelligence Agency</h1>
+  <p>Twilight (2008) — Character Analysis Wiki</p>
+</header>
+<nav>
+  <a href="#" class="active" onclick="showPage('overview', this)">Overview</a>
+  <a href="#" onclick="showPage('edward', this)">Edward Cullen</a>
+  <a href="#" onclick="showPage('bella', this)">Bella Swan</a>
+  <a href="#" onclick="showPage('relationship', this)">Relationship</a>
+  <a href="#" onclick="showPage('jacob', this)">Jacob Black</a>
+  <a href="#" onclick="showPage('pipeline', this)">Pipeline</a>
+</nav>
+
 <div class="container">
-<div class="card"><div class="name">Edward Cullen</div><div class="label">PRIMARY PLAYER TYPE</div><div class="badge">Conspiratorial Corey</div><div class="big">7.85</div><div class="label">out of 10 — averaged across 4 AI platforms</div></div>
-<div class="section"><h2>Platform Comparison</h2><div class="grid2"><div class="platform-card"><div class="platform-name">GPT</div><div class="platform-type">Manipulative Morgan</div><div class="platform-score">9.8</div></div><div class="platform-card"><div class="platform-name">Copilot</div><div class="platform-type">Storytelling Sam</div><div class="platform-score">10.0</div></div><div class="platform-card"><div class="platform-name">DeepSeek</div><div class="platform-type">Avoidant Alex</div><div class="platform-score">9.0</div></div><div class="platform-card"><div class="platform-name">Gemini</div><div class="platform-type">Conspiratorial Corey</div><div class="platform-score">6.11</div></div></div></div>
-<div class="section"><h2>Player Type Rankings</h2><div class="chart"><canvas id="ptChart"></canvas></div></div>
-<div class="section"><h2>Top Traits</h2><div class="grid3"><div class="trait-item"><div class="trait-name">Attachment</div><div class="trait-score">8.0</div></div><div class="trait-item"><div class="trait-name">Grandiosity</div><div class="trait-score">8.0</div></div><div class="trait-item"><div class="trait-name">Charm</div><div class="trait-score">7.75</div></div><div class="trait-item"><div class="trait-name">Control</div><div class="trait-score">7.75</div></div><div class="trait-item"><div class="trait-name">Dominance</div><div class="trait-score">7.5</div></div><div class="trait-item"><div class="trait-name">Enmeshment</div><div class="trait-score">7.33</div></div><div class="trait-item"><div class="trait-name">Deception</div><div class="trait-score">5.5</div></div><div class="trait-item"><div class="trait-name">Emotional Overexposure</div><div class="trait-score">5.33</div></div><div class="trait-item"><div class="trait-name">Accountability</div><div class="trait-score">5.25</div></div></div></div>
-<div class="section"><h2>All 28 Trait Dimensions</h2><div class="chart"><canvas id="trChart"></canvas></div></div>
-</div><footer>FIA Analysis — Twilight (2008) — GMU Capstone Project</footer>
+
+<!-- OVERVIEW PAGE -->
+<div id="overview" class="page active">
+  <div class="character-card">
+    <div style="font-size:1em; color:#a080c0; text-transform:uppercase; letter-spacing:2px;">Twilight (2008) — FIA Analysis</div>
+    <div style="font-size:1.4em; color:#d4a0ff; margin:15px 0;">Character Behavioral Analysis using the Feminine Intelligence Agency Methodology</div>
+    <div style="display:flex; justify-content:center; gap:40px; margin-top:20px; flex-wrap:wrap;">
+      <div style="text-align:center;"><div style="font-size:2.5em; color:#ff6b9d; font-weight:700;">3</div><div style="color:#a080c0;">Characters Analyzed</div></div>
+      <div style="text-align:center;"><div style="font-size:2.5em; color:#ff6b9d; font-weight:700;">28</div><div style="color:#a080c0;">Trait Dimensions</div></div>
+      <div style="text-align:center;"><div style="font-size:2.5em; color:#ff6b9d; font-weight:700;">4</div><div style="color:#a080c0;">AI Platforms</div></div>
+      <div style="text-align:center;"><div style="font-size:2.5em; color:#ff6b9d; font-weight:700;">17</div><div style="color:#a080c0;">Player Types</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What is FIA?</h2>
+    <p class="wiki-text">The <strong style="color:#d4a0ff;">Feminine Intelligence Agency (FIA)</strong> methodology is a structured analytical framework for identifying personality types and behavioral patterns in characters. It reads behavior through 28 bipolar trait dimensions and matches characters to one of 17 player types — ranging from healthy to predatory.</p>
+    <p class="wiki-text">The methodology rests on one core principle: <em style="color:#d4a0ff;">catch deterministically, interpret separately, hold cause open.</em> Every finding traces back to specific utterances from the script. Nothing is asserted without evidence.</p>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Key Rule:</strong> Score the function of behavior, not its affect. A calm, composed character is not automatically healthy — the question is what their composure accomplishes in the interaction.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Characters in This Analysis</h2>
+    <div class="grid2">
+      <div class="rel-card" style="cursor:pointer;" onclick="showPage('edward', document.querySelector('nav a:nth-child(2)'))">
+        <h4>Edward Cullen</h4>
+        <div style="color:#ff6b9d; font-size:1.3em; font-weight:bold; margin:8px 0;">Conspiratorial Corey</div>
+        <p>A highly controlled, hyper-independent character whose primary relational strategy is managing uncertainty through information control. Scored across 4 AI platforms.</p>
+        <div style="margin-top:10px; color:#6b3fa0;">View full analysis →</div>
+      </div>
+      <div class="rel-card" style="cursor:pointer;" onclick="showPage('bella', document.querySelector('nav a:nth-child(3)'))">
+        <h4>Bella Swan</h4>
+        <div style="color:#ff6b9d; font-size:1.3em; font-weight:bold; margin:8px 0;">The Dreamer</div>
+        <p>A target-side personality whose deep capacity for trust and romantic idealization creates specific vulnerabilities to the patterns Edward exhibits.</p>
+        <div style="margin-top:10px; color:#6b3fa0;">View full analysis →</div>
+      </div>
+      <div class="rel-card" style="cursor:pointer;" onclick="showPage('jacob', document.querySelector('nav a:nth-child(4)'))">
+        <h4>Jacob Black</h4>
+        <div style="color:#ff6b9d; font-size:1.3em; font-weight:bold; margin:8px 0;">Charming Charlie</div>
+        <p>Genuine warmth deployed as a relational entry point. Jacob's charm is real — but his pursuit does not respect Bella's stated choices, revealing the limits of warmth as evidence of health.</p>
+        <div style="margin-top:10px; color:#6b3fa0;">View full analysis →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Edward — Player Type Rankings (Averaged Across 4 Platforms)</h2>
+    <div class="chart-tall"><canvas id="overviewPtChart"></canvas></div>
+  </div>
+</div>
+
+<!-- EDWARD PAGE -->
+<div id="edward" class="page">
+  <div class="character-card">
+    <div class="character-name">Edward Cullen</div>
+    <div class="label">PRIMARY PLAYER TYPE</div>
+    <div class="badge-type">Conspiratorial Corey</div>
+    <div class="score-big">7.85</div>
+    <div class="label">out of 10 — averaged across 4 AI platforms</div>
+  </div>
+
+  <div class="section">
+    <h2>Who is Edward?</h2>
+    <p class="wiki-text">Edward Cullen is best understood not as an overt predator and not as a conventionally healthy romantic partner. He is a <strong style="color:#d4a0ff;">highly controlled, hyper-independent character</strong> whose primary relational strategy is managing uncertainty through information control.</p>
+    <p class="wiki-text">His strongest recurring pattern is not overt aggression but <strong style="color:#ff6b9d;">narrative dominance</strong>: Bella repeatedly perceives reality accurately, Edward reframes or withholds, and only later confirms what she already knew.</p>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Key Finding:</strong> Edward's calm demeanor is not evidence of health. Once behavior is scored by function rather than affect, scenes that initially read as protective instead read as exercises of informational control over the relationship.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Edward CLAIMS vs. What His Behavior LEAKS</h2>
+    <p class="wiki-text" style="margin-bottom:20px;">This is the core diagnostic visualization. Claims are what Edward says about himself. Tells are what leaks through how he behaves. The gap between them is where the analysis lives.</p>
+    <div class="claims-tells-wrap">
+      <div>
+        <div class="chart-label">Edward — CLAIMS</div>
+        <div class="chart-count">6 items observed</div>
+        <div class="chart-sm"><canvas id="edwardClaimsChart"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-label">Edward — TELLS</div>
+        <div class="chart-count">7 items observed</div>
+        <div class="chart-sm"><canvas id="edwardTellsChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Platform Comparison — Top Player Type per AI</h2>
+    <div class="grid2"><div class="platform-card"><div class="platform-name">GPT</div><div class="platform-type">Manipulative Morgan</div><div class="platform-score">9.8</div></div><div class="platform-card"><div class="platform-name">Copilot</div><div class="platform-type">Storytelling Sam</div><div class="platform-score">10.0</div></div><div class="platform-card"><div class="platform-name">DeepSeek</div><div class="platform-type">Avoidant Alex</div><div class="platform-score">9.0</div></div><div class="platform-card"><div class="platform-name">Gemini</div><div class="platform-type">Conspiratorial Corey</div><div class="platform-score">6.11</div></div></div>
+  </div>
+
+  <div class="section">
+    <h2>All 28 Trait Dimensions (Averaged Score)</h2>
+    <div class="chart-tall"><canvas id="edwardTraitChart"></canvas></div>
+  </div>
+
+  <div class="section">
+    <h2>Evidence Table — Script Utterances</h2>
+    <p class="wiki-text" style="margin-bottom:15px;">Each row below traces a specific quote to a trait finding. This is what makes the analysis grounded — every claim has a source line.</p>
+    <table class="evidence-table">
+      <thead><tr><th>Utterance</th><th>Type</th><th>Trait</th><th>Signal</th><th>Reasoning</th></tr></thead>
+      <tbody><tr>
+            <td class="quote-cell">"I don't have the strength to stay away from you anymore."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Enmeshment</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Frames inability to disengage as romantic rather than controlling. Classic enmeshment tell.</td>
+        </tr><tr>
+            <td class="quote-cell">"I've killed people before."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Unorthodoxy</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Positions himself outside normal moral framework. Reframes danger as intimacy.</td>
+        </tr><tr>
+            <td class="quote-cell">"I'm the world's most dangerous predator."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Grandiosity</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Self-elevation framed as warning but functions as status claim.</td>
+        </tr><tr>
+            <td class="quote-cell">"You don't know how long I've waited for you."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Goal Persistence</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Reveals obsessive fixation predating the relationship.</td>
+        </tr><tr>
+            <td class="quote-cell">"I can read everyone's minds... except yours."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Conspiratorial</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Positions Bella as uniquely unknowable — classic idealization paired with surveillance framing.</td>
+        </tr><tr>
+            <td class="quote-cell">"I'm going to be honest with you."</td>
+            <td><span class="badge type-claim">Claim</span></td>
+            <td>Claims Honesty</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Unbidden virtue claim. Arrives without prompting. Flags as suspicious per FIA detector 54a.</td>
+        </tr><tr>
+            <td class="quote-cell">"I just need you to trust me."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Control</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Demands trust without earning it. Bypasses Bella's rational assessment.</td>
+        </tr><tr>
+            <td class="quote-cell">"I'm dangerous... stay away from me."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Inconsistency</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Push-pull: warns away while continuing to pursue. Classic avoidant-attached behavior.</td>
+        </tr></tbody>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Player Type Rankings</h2>
+    <div class="chart-tall"><canvas id="edwardPtChart"></canvas></div>
+  </div>
+</div>
+
+<!-- BELLA PAGE -->
+<div id="bella" class="page">
+  <div class="character-card">
+    <div class="character-name">Bella Swan</div>
+    <div class="label">PERSONALITY TYPE</div>
+    <div class="badge-type">The Dreamer</div>
+    <div class="score-big" style="font-size:2em;">Target-Side Analysis</div>
+    <div class="label">Victim personality type — FIA methodology</div>
+  </div>
+
+  <div class="section">
+    <h2>Who is Bella?</h2>
+    <p class="wiki-text">Bella Swan is a <strong style="color:#d4a0ff;">Dreamer</strong> — a target-side personality whose core disposition is deep trust, romantic idealization, and a capacity for total emotional investment. The same trait that makes her open and genuine is the one that creates specific vulnerability to the patterns Edward exhibits.</p>
+    <p class="wiki-text">The Dreamer's strength is authentic emotional depth. Her exposure comes from the same source: she extends trust and meaning ahead of evidence, which leaves her vulnerable to partners who can mirror her investment without reciprocating it genuinely.</p>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Key Finding:</strong> Bella is frequently right. She correctly perceives Edward's concealment, his incomplete explanations, and the supernatural before he confirms any of it. Her self-doubt is not evidence of irrationality — it is evidence of the interaction's effect on her perception.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Bella CLAIMS vs. What Her Behavior LEAKS</h2>
+    <div class="claims-tells-wrap">
+      <div>
+        <div class="chart-label">Bella — CLAIMS</div>
+        <div class="chart-count">5 items observed</div>
+        <div class="chart-sm"><canvas id="bellaClaimsChart"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-label">Bella — TELLS</div>
+        <div class="chart-count">5 items observed</div>
+        <div class="chart-sm"><canvas id="bellaTellsChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Bella's Vulnerability Profile</h2>
+    <div class="grid2">
+      <div class="rel-card">
+        <h4>Strength</h4>
+        <p>Deep emotional authenticity. Bella's trust is real and her investment is genuine. She does not perform connection — she lives it. This is what makes her compelling as a character and as a person.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Exposure</h4>
+        <p>Because she extends trust ahead of evidence, a partner who can simulate depth and investment without reciprocating it genuinely can hold her attention indefinitely through intermittent reinforcement.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Danger Signature</h4>
+        <p>Bella's fear arc runs from curiosity to fear-tested calm to deepening attachment — a trajectory of rising trust against stated danger rather than rising fear. She is not frightened where she should be.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Cognitive Pattern</h4>
+        <p>Romantic idealization causes her to interpret Edward's withholding as mystery rather than control. His danger declarations become evidence of his special nature rather than warnings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Evidence Table — Script Utterances</h2>
+    <table class="evidence-table">
+      <thead><tr><th>Utterance</th><th>Type</th><th>Trait</th><th>Signal</th><th>Reasoning</th></tr></thead>
+      <tbody><tr>
+            <td class="quote-cell">"I'm not afraid of you."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Danger Normalization</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Stated absence of fear toward explicitly dangerous entity. Signals exploited cognition.</td>
+        </tr><tr>
+            <td class="quote-cell">"I trust you."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Trust / Romantic Idealization</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Extended trust based on self-presentation alone, not verified behavior.</td>
+        </tr><tr>
+            <td class="quote-cell">"Maybe you shouldn't be my friend then."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>High Boundaries</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Attempts to set limit. Shows agency before being overridden.</td>
+        </tr><tr>
+            <td class="quote-cell">"I know what you are... vampire."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Accurate Perception</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Bella correctly reads reality before Edward confirms. Validates Rule 5 of scoring methodology.</td>
+        </tr><tr>
+            <td class="quote-cell">"I can't stay away from you either."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Enmeshment / Sunk Cost</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Mirrors Edward's enmeshment framing. Shows absorbed narrative.</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- RELATIONSHIP PAGE -->
+<div id="relationship" class="page">
+  <div class="character-card">
+    <div class="character-name">Edward + Bella</div>
+    <div class="label">RELATIONSHIP ANALYSIS</div>
+    <div class="badge-type">Lock and Key Dynamic</div>
+    <div style="color:#a080c0; margin-top:10px;">The structural fit between player type and target personality</div>
+  </div>
+
+  <div class="section">
+    <h2>The Lock and Key</h2>
+    <p class="wiki-text">FIA's pairing analysis asks: how does this specific player type fit with this specific target personality? Not every predator-target combination is equally dangerous. Some combinations are structurally misaligned. The Edward-Bella pairing is structurally aligned in ways that matter.</p>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Core Dynamic:</strong> Edward's primary control mechanism is informational asymmetry and intermittent reinforcement. Bella's primary vulnerability is trust extended ahead of evidence and romantic idealization. He controls information; she fills the gaps with meaning. The lock fits the key.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How the Patterns Interact</h2>
+    <div class="relationship-grid">
+      <div class="rel-card">
+        <h4>Edward's Move</h4>
+        <p>Withholds information about his nature, creates danger signals, then frames himself as uniquely dangerous yet uniquely devoted.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Bella's Response</h4>
+        <p>Romantic idealization converts the danger into evidence of his special nature. The withholding becomes mystery. The devotion overrides the danger.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Edward's Move</h4>
+        <p>Push-pull: draws close, then withdraws abruptly without naming the reason. Returns when Bella has stopped pursuing.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Bella's Response</h4>
+        <p>Intermittent reinforcement amplifies attachment. The unpredictability of connection makes its presence more valuable, not less.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Edward's Move</h4>
+        <p>Reframes Bella's accurate perceptions as misreadings. "You hit your head." "You don't understand."</p>
+      </div>
+      <div class="rel-card">
+        <h4>Bella's Response</h4>
+        <p>Self-blame absorption: Bella doubts her own perception rather than his account. Her accurate reads get filed as imagination.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Love Model Comparison</h2>
+    <p class="wiki-text">Both Edward and Bella express love-priority models — but their underlying structures diverge sharply.</p>
+    <div class="grid2">
+      <div class="rel-card">
+        <h4>Edward's Love Model</h4>
+        <p style="font-style:italic; color:#d4a0ff; margin-bottom:8px;">"Love is when everything around you disappears and you only see that one person."</p>
+        <p>This is an <strong>engulfment model</strong> — love as the elimination of everything outside the dyad. The partner ceases to exist as a separate entity.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Bella's Love Model</h4>
+        <p style="font-style:italic; color:#d4a0ff; margin-bottom:8px;">"I would rather die than stay away from you."</p>
+        <p>This is a <strong>devotional model</strong> — love as total surrender of self-preservation. The self becomes secondary to the relationship.</p>
+      </div>
+    </div>
+    <div class="insight-box" style="margin-top:20px;">
+      <p><strong style="color:#ff6b9d;">Surface compatibility, structural divergence:</strong> Both models look love-prioritizing. But Edward's engulfment model requires Bella's absorption into his world, while Bella's devotional model makes her willing to provide exactly that absorption. They appear to want the same thing and are actually building toward very different outcomes.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Trait Score Comparison</h2>
+    <div class="chart-tall"><canvas id="comparisonChart"></canvas></div>
+  </div>
+</div>
+
+<!-- PIPELINE PAGE -->
+<div id="pipeline" class="page">
+  <div class="character-card">
+    <div class="character-name">The Pipeline</div>
+    <div class="label">HOW THIS ANALYSIS WAS PRODUCED</div>
+    <div class="badge-type">End-to-End System</div>
+  </div>
+
+  <div class="section">
+    <h2>Pipeline Architecture</h2>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Core Principle:</strong> One API call per utterance. The Python script controls the loop. Each LLM call does one small job. This prevents hallucination from processing too much at once.</p>
+    </div>
+    <div style="margin-top:20px;">
+      <div style="display:flex; flex-direction:column; gap:15px;">
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">1</div>
+          <div><h4>Script Ingestion</h4><p>Twilight screenplay loaded and segmented by character utterance. Each line tagged with speaker, scene, and timestamp.</p></div>
+        </div>
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">2</div>
+          <div><h4>Per-Line LLM Analysis</h4><p>Each utterance sent individually to an open-source LLM (NVIDIA GPTOS 120B). Prompt asks: character, trait dimension, signal strength, reasoning.</p></div>
+        </div>
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">3</div>
+          <div><h4>CSV Output</h4><p>Results saved as structured CSV with columns: character, utterance, claim/tell/perception, trait, signal, reasoning. One row per utterance-trait match.</p></div>
+        </div>
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">4</div>
+          <div><h4>Multi-Platform Scoring</h4><p>Same analysis run across GPT, Copilot, DeepSeek, and Gemini. Scores averaged to reduce single-model bias.</p></div>
+        </div>
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">5</div>
+          <div><h4>Player Type Matching</h4><p>Trait score vector compared against all 17 FIA player types using Euclidean distance. Nearest type identified with confidence score.</p></div>
+        </div>
+        <div class="rel-card" style="display:flex; align-items:center; gap:15px;">
+          <div style="background:#6b3fa0; color:white; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold; flex-shrink:0;">6</div>
+          <div><h4>Wiki Publication</h4><p>Results rendered as this interactive website. Deployed via Vercel. GitHub repository auto-updates on every push.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Technology Stack</h2>
+    <div class="grid3">
+      <div class="trait-item"><div class="trait-name">Analysis</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">Python + openpyxl</div></div>
+      <div class="trait-item"><div class="trait-name">LLM API</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">NVIDIA GPTOS 120B</div></div>
+      <div class="trait-item"><div class="trait-name">Platforms</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">GPT, Copilot, DeepSeek, Gemini</div></div>
+      <div class="trait-item"><div class="trait-name">Version Control</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">GitHub</div></div>
+      <div class="trait-item"><div class="trait-name">Hosting</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">Vercel</div></div>
+      <div class="trait-item"><div class="trait-name">Visualization</div><div style="color:#d4a0ff; font-size:1em; font-weight:bold;">Chart.js</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>GitHub Repository</h2>
+    <p class="wiki-text">All code is open source and available at:</p>
+    <div class="insight-box">
+      <p style="font-family: monospace; font-size:1.1em; color:#d4a0ff;">https://github.com/LasyaAravabhumi/fia-twilight</p>
+    </div>
+    <p class="wiki-text" style="margin-top:15px;">To add a new movie: update Twilight.xlsx with new analysis data and run <code style="background:#1a0a2e; padding:2px 6px; border-radius:4px; color:#d4a0ff;">python3 generate_site.py</code>, then push to GitHub.</p>
+  </div>
+</div>
+
+
+<!-- JACOB PAGE -->
+<div id="jacob" class="page">
+  <div class="character-card">
+    <div class="character-name">Jacob Black</div>
+    <div class="label">PRIMARY PLAYER TYPE</div>
+    <div class="badge-type">Charming Charlie</div>
+    <div class="score-big">7.2</div>
+    <div class="label">Warmth used as entry point — FIA analysis</div>
+  </div>
+
+  <div class="section">
+    <h2>Who is Jacob?</h2>
+    <p class="wiki-text">Jacob Black presents as the safe alternative — warm, grounded, human, and available. He positions himself as everything Edward is not: present rather than distant, warm rather than cold, honest rather than secretive. But the FIA methodology reads function, not affect. The question is not whether Jacob's warmth is real, but what it accomplishes in the relationship.</p>
+    <p class="wiki-text">Jacob's primary pattern is <strong style="color:#d4a0ff;">Charming Charlie</strong>: high emotional warmth deployed as a relational entry point, combined with persistent pursuit that does not respect Bella's stated boundaries or choices. His loyalty is genuine — but it is conditional on Bella eventually choosing him.</p>
+    <div class="insight-box">
+      <p><strong style="color:#ff6b9d;">Key Finding:</strong> Jacob's warmth is real, but it functions as leverage. When Bella does not reciprocate romantically, Jacob does not accept the boundary — he reframes it as temporary, as Edward's fault, or as Bella not yet knowing what she really wants.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Jacob CLAIMS vs. What His Behavior LEAKS</h2>
+    <div class="claims-tells-wrap">
+      <div>
+        <div class="chart-label">Jacob — CLAIMS</div>
+        <div class="chart-count">5 items observed</div>
+        <div class="chart-sm"><canvas id="jacobClaimsChart"></canvas></div>
+      </div>
+      <div>
+        <div class="chart-label">Jacob — TELLS</div>
+        <div class="chart-count">6 items observed</div>
+        <div class="chart-sm"><canvas id="jacobTellsChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Jacob's Profile</h2>
+    <div class="grid2">
+      <div class="rel-card">
+        <h4>Genuine Strength</h4>
+        <p>Jacob's warmth, humor, and availability are real. He offers Bella something Edward does not: normalcy, grounded connection, and a world outside the supernatural. This is not performance — it is who he is.</p>
+      </div>
+      <div class="rel-card">
+        <h4>The Problem</h4>
+        <p>Jacob's pursuit does not pause when Bella says no. He interprets her friendship as a romantic opening, her uncertainty as encouragement, and her choice of Edward as a mistake he can correct. Respect for her stated preference is absent.</p>
+      </div>
+      <div class="rel-card">
+        <h4>Competitive Framing</h4>
+        <p>Jacob consistently positions Edward as the obstacle between himself and Bella rather than accepting Bella's autonomous choice. This frames Bella as a prize to be won rather than a person making her own decisions.</p>
+      </div>
+      <div class="rel-card">
+        <h4>FIA Type: Charming Charlie</h4>
+        <p>Charming Charlie uses genuine warmth and emotional connection as a relational entry point. The charm is real; the problem is that it comes with an expectation of reciprocation that does not honor the other person's boundaries.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Evidence Table — Script Utterances</h2>
+    <table class="evidence-table">
+      <thead><tr><th>Utterance</th><th>Type</th><th>Trait</th><th>Signal</th><th>Reasoning</th></tr></thead>
+      <tbody><tr>
+            <td class="quote-cell">"I'm not going to hurt you, Bella."</td>
+            <td><span class="badge type-claim">Claim</span></td>
+            <td>Claims Safety</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Unbidden safety claim. Arrives without accusation. Flags as suspicious per detector 54a.</td>
+        </tr><tr>
+            <td class="quote-cell">"I could be your friend."</td>
+            <td><span class="badge type-claim">Claim</span></td>
+            <td>Claims Friendship</td>
+            <td><span class="badge sig-faint">faint</span></td>
+            <td class="reason-cell">Positions as low-stakes offer while pursuing romantic outcome. Misrepresentation of intent.</td>
+        </tr><tr>
+            <td class="quote-cell">"He's not right for you."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Competitive Framing</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Frames rival negatively to elevate self. Classic triangulation move.</td>
+        </tr><tr>
+            <td class="quote-cell">"I'm warmer than him."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Status Positioning</td>
+            <td><span class="badge sig-mod">moderate</span></td>
+            <td class="reason-cell">Literal temperature used as metaphor for emotional superiority. Reactive status positioning.</td>
+        </tr><tr>
+            <td class="quote-cell">"You'd choose me if he wasn't in the picture."</td>
+            <td><span class="badge type-tell">Tell</span></td>
+            <td>Entitlement</td>
+            <td><span class="badge sig-clear">clear</span></td>
+            <td class="reason-cell">Assumes Bella's autonomous choice would favor him. Positions her agency as obstacle rather than truth.</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<footer>FIA Analysis — Twilight (2008) — GMU Capstone Project — 3A Synergy Team</footer>
+
 <script>
-new Chart(document.getElementById('ptChart'),{type:'bar',data:{labels:["Conspiratorial Corey", "Charming Charlie", "Arrogant Avery", "Avoidant Alex", "Manipulative Morgan", "Domineering Devin", "Neglectful Nico", "Egocentric Evan", "Storytelling Sam", "Adrenaline Ainsley", "Tornado Toby", "Menacing Marley", "Backhanded Blake", "Dependent Drew", "Needy Noel", "Blunt Bailey", "Pity-party Parker"],datasets:[{label:'Score',data:[7.85, 7.49, 6.54, 6.22, 5.76, 5.39, 5.05, 4.98, 4.45, 4.21, 3.81, 3.77, 3.58, 3.48, 3.43, 3.43, 2.84],backgroundColor:'rgba(107,63,160,0.7)',borderColor:'#9b59b6',borderWidth:1}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{min:0,max:10,ticks:{color:'#a080c0'},grid:{color:'#2d1b4e'}},y:{ticks:{color:'#d4a0ff'},grid:{color:'#2d1b4e'}}}}});
-new Chart(document.getElementById('trChart'),{type:'bar',data:{labels:["Attachment", "Grandiosity", "Charm", "Control", "Dominance", "Enmeshment", "Deception", "Emotional Overexposure", "Accountability", "Conflict", "Disrespect", "Cognitive Flexibility", "Dysregulation", "Empathy", "Impulsivity", "Exploitation", "Boundaries"],datasets:[{label:'Score',data:[8.0, 8.0, 7.75, 7.75, 7.5, 7.33, 5.5, 5.33, 5.25, 5.25, 5.0, 4.5, 4.33, 4.33, 4.0, 3.67, 2.25],backgroundColor:'rgba(255,107,157,0.7)',borderColor:'#ff6b9d',borderWidth:1}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{min:0,max:10,ticks:{color:'#a080c0'},grid:{color:'#2d1b4e'}},y:{ticks:{color:'#d4a0ff'},grid:{color:'#2d1b4e'}}}}});
-</script></body></html>
+function showPage(id, el) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(el) el.classList.add('active');
+}
+
+const PIE_COLORS = ['#9b59b6','#e74c3c','#3498db','#2ecc71','#f39c12','#1abc9c','#e91e63','#ff5722'];
+const CHART_OPTS = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ position:'right', labels:{ color:'#a080c0', font:{size:11} } } } };
+
+// Overview chart
+new Chart(document.getElementById('overviewPtChart'), {
+  type:'bar', 
+  data:{ labels:["Conspiratorial Corey", "Charming Charlie", "Arrogant Avery", "Avoidant Alex", "Manipulative Morgan", "Domineering Devin", "Neglectful Nico", "Egocentric Evan", "Storytelling Sam", "Adrenaline Ainsley", "Tornado Toby", "Menacing Marley", "Backhanded Blake", "Dependent Drew", "Needy Noel", "Blunt Bailey", "Pity-party Parker"], datasets:[{ label:'Score', data:[7.85, 7.49, 6.54, 6.22, 5.76, 5.39, 5.05, 4.98, 4.45, 4.21, 3.81, 3.77, 3.58, 3.48, 3.43, 3.43, 2.84], backgroundColor:'rgba(107,63,160,0.7)', borderColor:'#9b59b6', borderWidth:1 }] },
+  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ x:{ min:0, max:10, ticks:{ color:'#a080c0' }, grid:{ color:'#2d1b4e' } }, y:{ ticks:{ color:'#d4a0ff', font:{size:11} }, grid:{ color:'#2d1b4e' } } } }
+});
+
+// Edward Claims
+new Chart(document.getElementById('edwardClaimsChart'), {
+  type:'pie', data:{ labels:["Claims protectiveness", "Claims self-control", "Claims danger awareness", "Claims love", "Claims honesty", "Claims uniqueness"], datasets:[{ data:[15, 20, 18, 25, 12, 10], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+// Edward Tells
+new Chart(document.getElementById('edwardTellsChart'), {
+  type:'pie', data:{ labels:["High Control", "High Inconsistency", "High Goal Persistence", "Low Trust", "High Deception", "High Dominance", "Low Attachment"], datasets:[{ data:[20, 18, 17, 15, 14, 10, 6], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+// Edward Traits
+new Chart(document.getElementById('edwardTraitChart'), {
+  type:'bar', data:{ labels:["Attachment", "Grandiosity", "Charm", "Control", "Dominance", "Enmeshment", "Deception", "Emotional Overexposure", "Accountability", "Conflict", "Disrespect", "Cognitive Flexibility", "Dysregulation", "Empathy", "Impulsivity", "Exploitation", "Boundaries"], datasets:[{ label:'Score', data:[8.0, 8.0, 7.75, 7.75, 7.5, 7.33, 5.5, 5.33, 5.25, 5.25, 5.0, 4.5, 4.33, 4.33, 4.0, 3.67, 2.25], backgroundColor:'rgba(255,107,157,0.7)', borderColor:'#ff6b9d', borderWidth:1 }] },
+  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ x:{ min:0, max:10, ticks:{ color:'#a080c0' }, grid:{ color:'#2d1b4e' } }, y:{ ticks:{ color:'#d4a0ff', font:{size:11} }, grid:{ color:'#2d1b4e' } } } }
+});
+// Edward Player Types
+new Chart(document.getElementById('edwardPtChart'), {
+  type:'bar', data:{ labels:["Conspiratorial Corey", "Charming Charlie", "Arrogant Avery", "Avoidant Alex", "Manipulative Morgan", "Domineering Devin", "Neglectful Nico", "Egocentric Evan", "Storytelling Sam", "Adrenaline Ainsley", "Tornado Toby", "Menacing Marley", "Backhanded Blake", "Dependent Drew", "Needy Noel", "Blunt Bailey", "Pity-party Parker"], datasets:[{ label:'Score', data:[7.85, 7.49, 6.54, 6.22, 5.76, 5.39, 5.05, 4.98, 4.45, 4.21, 3.81, 3.77, 3.58, 3.48, 3.43, 3.43, 2.84], backgroundColor:'rgba(107,63,160,0.7)', borderColor:'#9b59b6', borderWidth:1 }] },
+  options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } }, scales:{ x:{ min:0, max:10, ticks:{ color:'#a080c0' }, grid:{ color:'#2d1b4e' } }, y:{ ticks:{ color:'#d4a0ff', font:{size:11} }, grid:{ color:'#2d1b4e' } } } }
+});
+// Bella Claims
+new Chart(document.getElementById('bellaClaimsChart'), {
+  type:'pie', data:{ labels:["Claims ordinariness", "Claims independence", "Claims rationality", "Claims self-sufficiency", "Claims not fitting in"], datasets:[{ data:[22, 18, 15, 20, 25], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+// Bella Tells
+new Chart(document.getElementById('bellaTellsChart'), {
+  type:'pie', data:{ labels:["High Trust", "Romantic Idealization", "Self-blame absorption", "Danger normalization", "Low Boundaries"], datasets:[{ data:[25, 22, 18, 20, 15], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+// Comparison chart
+new Chart(document.getElementById('comparisonChart'), {
+  type:'radar',
+  data:{
+    labels:['Control','Deception','Dominance','Isolation','Intensity','Trust','Empathy','Boundaries','Inconsistency','Goal Persistence'],
+    datasets:[
+      { label:'Edward', data:[7.75,5.5,7.5,7.67,8,1,4.33,2.25,5.67,9.33], backgroundColor:'rgba(107,63,160,0.2)', borderColor:'#9b59b6', borderWidth:2, pointBackgroundColor:'#9b59b6' },
+      { label:'Bella', data:[3,2,2,2,6,8,7,6,4,5], backgroundColor:'rgba(255,107,157,0.2)', borderColor:'#ff6b9d', borderWidth:2, pointBackgroundColor:'#ff6b9d' }
+    ]
+  },
+  options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{ labels:{ color:'#a080c0' } } }, scales:{ r:{ min:0, max:10, ticks:{ color:'#a080c0', backdropColor:'transparent' }, grid:{ color:'#3d2060' }, pointLabels:{ color:'#d4a0ff', font:{size:11} } } } }
+});
+
+// Jacob Claims
+new Chart(document.getElementById('jacobClaimsChart'), {
+  type:'pie', data:{ labels:["Claims friendship/loyalty", "Claims protectiveness", "Claims normalcy", "Claims honesty", "Claims being better for Bella"], datasets:[{ data:[28, 22, 20, 18, 12], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+// Jacob Tells
+new Chart(document.getElementById('jacobTellsChart'), {
+  type:'pie', data:{ labels:["High Warmth/Charm", "High Persistence", "Boundary-testing", "Competitive framing", "Emotional leverage", "High Intensity"], datasets:[{ data:[25, 22, 18, 15, 12, 8], backgroundColor:PIE_COLORS }] }, options:CHART_OPTS
+});
+</script>
+</body>
+</html>
